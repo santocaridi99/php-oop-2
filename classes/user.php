@@ -109,4 +109,15 @@ class User {
     public function pushCart($product){
         array_push($this->cart,$product);
     }
+
+    // funzione per sconto
+    public function getDiscount(){
+        // se è registrato ritorna il 20% di sconto altrimenti niente
+        if($this->registered){
+            return 20;
+        } else{
+            return 0;
+        }
+    }
+
 }
