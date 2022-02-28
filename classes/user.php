@@ -1,5 +1,5 @@
 <?php 
-require_once './creditCard.php';
+require_once __DIR__ . '/creditCard.php';
 class User {
     private string $firstName;
     private string $lastName;
@@ -11,7 +11,7 @@ class User {
 
     function __construct(array $_userData)
     {
-        $requiredKeys=["firstName","lastName","email","registered","cart","creditCard"];
+        $requiredKeys=["firstName","lastName","email","registered","cart"];
         foreach($requiredKeys as $key){
             if(!key_exists($key,$_userData)){
                 var_dump("Chiave mancante $key");
@@ -22,7 +22,7 @@ class User {
         $this->setEmail($_userData["email"]);
         $this->setRegistered($_userData["registered"]);
         $this->cart = $_userData["cart"];
-        $this->creditCard = new CreditCard();
+        $this->creditCard = new CreditCard($_userData);
     }
 
     /**
@@ -120,4 +120,12 @@ class User {
         }
     }
 
+
+    /**
+     * Get the value of creditCard
+     */ 
+    public function getCreditCard()
+    {
+        return $this->creditCard;
+    }
 }
