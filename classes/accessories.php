@@ -2,18 +2,18 @@
 require_once __DIR__ . "/product.php";
 class Accessories extends Product{
     // tipo di accessorio
-    protected string $aType;
+    protected string $acessoriesType;
     // costruttore
     function __construct(array $_productData)
     {
-        $requiredKeys = ["aType"];
+        $requiredKeys = ["accessoriesType"];
         foreach($requiredKeys as $key){
             if(!key_exists($key,$_productData)){
                 var_dump("Mancano chiavi $key");
             }
         }
         parent::__construct($_productData);
-        $this->setAType($_productData);
+        $this->setAccessoriesType($_productData);
     }
    
 
@@ -30,9 +30,9 @@ class Accessories extends Product{
      *
      * @return  self
      */ 
-    public function setAType($aType)
+    public function setAccessoriesType($accessoriesType)
     {
-        $this->aType = $aType;
+        $this->accessoriesType = $accessoriesType;
 
         return $this;
     }
