@@ -32,6 +32,10 @@ $product1 = new Product([
     "price"=>3.0
 ]);
 var_dump($product1);
+// push al carrello
+$user1->pushCart($product1);
+// stampo carrello con prodotto pushato
+var_dump($user1);
 
 $toy1=new Toy([
     "id"=>1,

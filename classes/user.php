@@ -5,6 +5,7 @@ class User {
     private string $lastName;
     private string $email;
     private bool $registered=false;
+    // carrello lo imposto pubblico così posso usarlo nell'index
     private $cart = [];
     private $creditCard;
 
@@ -118,14 +119,5 @@ class User {
         } else{
             return 0;
         }
-    }
-
-
-    /**
-     * Get the value of creditCard
-     */ 
-    public function getCreditCard()
-    {
-        return $this->creditCard;
     }
 }
