@@ -8,6 +8,7 @@ class User {
     // carrello lo imposto pubblico così posso usarlo nell'index
     private $cart = [];
     private $creditCard;
+    private int $discount=0;
 
 
     function __construct(array $_userData)
@@ -102,7 +103,8 @@ class User {
     public function setRegistered($registered)
     {
         $this->registered = $registered;
-
+        // quando setta registraziobe esegue pure funzione discount
+        $this->Discount();
         return $this;
     }
 
@@ -112,12 +114,12 @@ class User {
     }
 
     // funzione per sconto
-    public function getDiscount(){
+    public function Discount(){
         // se è registrato ritorna il 20% di sconto altrimenti niente
         if($this->registered){
-            return 20;
+            return $this->discount = 20;
         } else{
-            return 0;
+            return $this->discount=0;
         }
     }
 }
